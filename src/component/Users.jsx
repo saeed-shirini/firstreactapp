@@ -14,7 +14,7 @@ class Users extends Component{
     render(){
         return(
             <div className="users">
-                <button onClick={this.handleCreate} type="button" className="btn btn-info btn-lg">create</button>
+                <button onClick={this.handleCreate} type="button" className="btn btn-info btn-lg mt-3">create</button>
                 
                 <div className="container">
                     <div className="row text-center m-auto">
