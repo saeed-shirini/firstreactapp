@@ -5,7 +5,8 @@ import Login from "./component/Login";
 import Register from "./component/Register";
 import Home from "./component/Home";
 import Navbar from "./component/Navbar";
-import {Switch} from "react-router-dom"
+import {Switch} from "react-router-dom";
+import SingleUser from "./component/SingleUser.jsx";
 
 class App extends Component{
     render(){
@@ -13,6 +14,7 @@ class App extends Component{
             <>
                 <Navbar/>
                 <Switch>
+                    <Route path="/users/:id" component={SingleUser}/>
                     <Route path="/users" component={Users}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/Register" component={Register}/>

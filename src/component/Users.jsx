@@ -1,6 +1,7 @@
 import {Component} from "react";
 import axios from "axios";
 import LoadingUsers from "./loading/loadungUsers.jsx";
+import {Link} from "react-router-dom"
 
 class Users extends Component{
     state={
@@ -23,9 +24,11 @@ class Users extends Component{
                             return (
                                 <div className="col-md-4 p-5" key={index}>
                                     <img src={user.avatar} alt="" style={{borderRadius:"50%",width:"100px"}}/>
-                                    <h4>
-                                        {user.first_name} {user.last_name}
-                                    </h4>
+                                    <Link to={`/users/${user.id}`}>
+                                        <h4>
+                                            {user.first_name} {user.last_name}
+                                        </h4>
+                                    </Link>
                                     <h5>{user.email}</h5>
                                     <div className="row">
                                         <div className="col-md-6">
