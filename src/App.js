@@ -1,12 +1,12 @@
 import {Component} from "react";
 import Users from "./component/Users.jsx";
-import {Route} from "react-router-dom";
 import Login from "./component/Login";
 import Register from "./component/Register";
 import Home from "./component/Home";
 import Navbar from "./component/Navbar";
-import {Switch} from "react-router-dom";
+import {Route,Switch,Redirect} from "react-router-dom";
 import SingleUser from "./component/SingleUser.jsx";
+import NotFound from "./component/NotFound.jsx";
 
 class App extends Component{
     render(){
@@ -18,7 +18,10 @@ class App extends Component{
                     <Route path="/users" component={Users}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/Register" component={Register}/>
-                    <Route path="/" component={Home}/>
+                    <Route path="/not-found" component={NotFound}/>
+                    <Redirect from="/customers" to="/users"/>
+                    <Route path="/" exact component={Home}/>
+                    <Redirect to="/not-found"/>
                 </Switch>
             </>
         )

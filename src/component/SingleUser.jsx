@@ -4,11 +4,10 @@ import queryString from 'query-string';
 
 const SingleUser = (props) => {
     const parse = queryString.parse(props.location.search)
-    console.log(parse)
-    let [user,setuser] = useState({});
+    let [user,setUser] = useState({});
     useEffect(async()=>{
         let response = await axios.get(`https://reqres.in/api/users/${props.match.params.id}`);
-        setuser(response.data.data);
+        setUser(response.data.data);
     },[]);
     return(
         <>
@@ -17,6 +16,7 @@ const SingleUser = (props) => {
                 {user.first_name} {user.last_name}
             </h4>
             <h5>{user.email}</h5>
+            <button onClick={()=>props.history.push("/users")} type="button" className="btn btn-info">users</button>
         </>
     )
 }
