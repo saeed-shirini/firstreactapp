@@ -1,8 +1,17 @@
-import { Component } from "react";
+import { Component,createRef } from "react";
+import axios from "axios";
 
 class Login extends Component {
-    handleSubmit = (e) => {
+    email = createRef();
+    password = createRef();
+
+    handleSubmit = async(e) => {
         e.preventDefault()
+        const account = {email:this.email.current.value,password:this.password.current.value}
+        if(account.email && account.password){
+            let response = await axios.post("https://reqres.in/api/login",account);
+            console.log(response)
+        }
     }
     render() {
         return (
@@ -11,13 +20,13 @@ class Login extends Component {
                     <div className="form-group row">
                         <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
-                            <input type="text" className="form-control" id="email" />
+                            <input ref={this.email} type="text" className="form-control" id="email" />
                         </div>
                     </div>
                     <div className="form-group row">
                         <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
                         <div className="col-sm-10">
-                            <input type="password" className="form-control" id="password" />
+                            <input ref={this.password} type="password" className="form-control" id="password" />
                         </div>
                     </div>
                     <button className="btn btn-primary">login</button>
