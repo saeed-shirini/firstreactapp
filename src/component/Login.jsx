@@ -1,5 +1,5 @@
 import { Component } from "react";
-import axios from "axios";
+import Input from "./Input";
 
 class Login extends Component {
     state = {
@@ -22,18 +22,8 @@ class Login extends Component {
         return (
             <div className="container mt-3">
                 <form onSubmit={this.handleSubmit}>
-                    <div className="form-group row">
-                        <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
-                        <div className="col-sm-10">
-                            <input onChange={this.handleChange} value={email} type="text" name="email" className="form-control" id="email" />
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
-                        <div className="col-sm-10">
-                            <input onChange={this.handleChange} value={password} type="password" name="password" className="form-control" id="password" />
-                        </div>
-                    </div>
+                    <Input name="email" onChange={this.handleChange} value={email}/>
+                    <Input name="password" onChange={this.handleChange} value={password}/>
                     <button className="btn btn-primary">login</button>
                 </form>
             </div>
