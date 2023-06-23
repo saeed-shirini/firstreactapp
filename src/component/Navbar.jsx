@@ -17,12 +17,23 @@ class Navbar extends Component{
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/users">users</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/login">login</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/register">register</NavLink>
-                        </li>
+                        {!this.props.user ? (
+                        <>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/login">login</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/register">register</NavLink>
+                            </li>
+                        </>) : <>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/dashboard">dashboard</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/logout">logout</NavLink>
+                            </li>
+                        </>}
+                        
                     </ul>
                 </div>
             </nav>

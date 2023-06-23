@@ -38,8 +38,10 @@ class Login extends Component {
         if (validate) {
             try {
                 this.setState({sending:true })
-                await axios.post("https://reqres.in/api/login", validate);
-                this.setState({sending:false})
+                const response = await axios.post("https://reqres.in/api/login", validate);
+                localStorage.setItem("token",response.data.token);
+                window.location = "/dashboard"
+                this.setState({sending:false});
             } catch (err) {
                 this.setState({ errors: ["email or password is invalid"],sending:false });
             }
