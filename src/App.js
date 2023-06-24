@@ -8,6 +8,8 @@ import {Route,Switch,Redirect} from "react-router-dom";
 import SingleUser from "./component/SingleUser.jsx";
 import NotFound from "./component/NotFound.jsx";
 import Dashboard from "./component/Dashboard";
+import Logout from "./component/Logout";
+import Protect from "./component/Protect"
 
 class App extends Component{
     state = {
@@ -30,6 +32,8 @@ class App extends Component{
                     <Route path="/users" component={Users}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/Register" component={Register}/>
+                    <Route path="/logout" component={Logout}/>
+                    <Protect component={Dashboard} path="/dashboard"/>
                     <Route path="/dashboard" component={Dashboard}/>
                     <Route path="/not-found" component={NotFound}/>
                     <Redirect from="/customers" to="/users"/>
