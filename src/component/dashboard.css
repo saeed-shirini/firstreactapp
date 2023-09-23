@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 100%;
+}
+
+.accordian {
+    width: 500px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordian:nth-child(1) {
+    margin-top: 20px;
+}
+
+.accordian .accordian-title button {
+    cursor: pointer;
+}
+
+.accordian .accordian-title button,
+.accordian .accordian-body {
+    font-size: 1.5rem;
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+}
+
+.accordian .accordian-title {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: none;
+}
+
+
+.accordian .accordian-body.active {
+    display: block;
+}
